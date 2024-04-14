@@ -1,0 +1,13 @@
+colcon build --symlink-install --packages-select demos_test_cpp
+source install/setup.bash
+ros2 run demos_test_cpp exe
+
+
+cmake -DCMAKE_CXX_FLAGS=-pg -DCMAKE_EXE_LINKER_FLAGS=-pg -DCMAKE_SHARED_LINKER_FLAGS=-pg ..
+make
+./exe
+gprof exe gmon.out > gp_res.txt
+
+gprof2dot.py gp_res.txt | dot -Tsvg -o output.svg
+
+gprof ser gmon.out > gp_res.txt

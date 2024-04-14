@@ -1,0 +1,28 @@
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/init_thread.cpp:8:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    8 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/timer_cb_latency_spin_some.cpp:7:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    7 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/timer_cb_latency_spin.cpp:7:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    7 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/init_and_node_thread.cpp:7:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    7 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/timer_cb_latency_spin_some.dir/build.make:76：CMakeFiles/timer_cb_latency_spin_some.dir/src/timer_cb_latency_spin_some.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:221：CMakeFiles/timer_cb_latency_spin_some.dir/all] 错误 2
+gmake[1]: *** 正在等待未完成的任务....
+gmake[2]: *** [CMakeFiles/init_thread.dir/build.make:76：CMakeFiles/init_thread.dir/src/init_thread.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:143：CMakeFiles/init_thread.dir/all] 错误 2
+gmake[2]: *** [CMakeFiles/init_and_node_thread.dir/build.make:76：CMakeFiles/init_and_node_thread.dir/src/init_and_node_thread.cpp.o] 错误 1
+gmake[2]: *** 正在等待未完成的任务....
+gmake[2]: *** [CMakeFiles/timer_cb_latency_spin.dir/build.make:76：CMakeFiles/timer_cb_latency_spin.dir/src/timer_cb_latency_spin.cpp.o] 错误 1
+gmake[2]: *** 正在等待未完成的任务....
+gmake[1]: *** [CMakeFiles/Makefile2:195：CMakeFiles/timer_cb_latency_spin.dir/all] 错误 2
+gmake[1]: *** [CMakeFiles/Makefile2:169：CMakeFiles/init_and_node_thread.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2

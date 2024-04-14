@@ -1,0 +1,4 @@
+[0.000000] (-) TimerEvent: {}
+[0.000201] (-) JobUnselected: {'identifier': 'ros2_timer_latency_measurement'}
+[0.000231] (-) JobUnselected: {'identifier': 'turtlesim'}
+[0.000247] (-) EventReactorShutdown: {}

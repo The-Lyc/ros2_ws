@@ -1,0 +1,75 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.0.4 (/home/lyc/ros2_iron/install/ament_cmake/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 21.0.5 (/home/lyc/ros2_iron/install/rclcpp/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.0.1 (/home/lyc/ros2_iron/install/rosidl_generator_c/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.0.1 (/home/lyc/ros2_iron/install/rosidl_generator_cpp/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_introspection_c;rosidl_typesupport_fastrtps_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_introspection_cpp;rosidl_typesupport_fastrtps_cpp
+-- Found rmw_implementation_cmake: 7.1.0 (/home/lyc/ros2_iron/install/rmw_implementation_cmake/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 7.1.3 (/home/lyc/ros2_iron/install/rmw_fastrtps_cpp/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /home/lyc/ros2_iron/install/fastrtps/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rttest: 0.15.0 (/home/lyc/ros2_iron/install/rttest/share/rttest/cmake)
+-- Found tlsf_cpp: 0.15.0 (/home/lyc/ros2_iron/install/tlsf_cpp/share/tlsf_cpp/cmake)
+-- Found ament_lint_auto: 0.14.3 (/home/lyc/ros2_iron/install/ament_lint_auto/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /home/lyc/ros2_ws/src/ros2_timer_latency_measurement/include
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lyc/ros2_ws/src/build/ros2_timer_latency_measurement
+[  8%] [32mBuilding CXX object CMakeFiles/init_thread.dir/src/init_thread.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/timer_cb_latency_spin_some.dir/src/timer_cb_latency_spin_some.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/timer_cb_latency_spin.dir/src/timer_cb_latency_spin.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/init_and_node_thread.dir/src/init_and_node_thread.cpp.o[0m
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/init_thread.cpp:8:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    8 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/timer_cb_latency_spin_some.cpp:7:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    7 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/timer_cb_latency_spin.cpp:7:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    7 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/lyc/ros2_ws/src/ros2_timer_latency_measurement/src/init_and_node_thread.cpp:7:10:[m[K [01;31m[Kfatal error: [m[Krttest/utils.h: 没有那个文件或目录
+    7 | #include [01;31m[K"rttest/utils.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/timer_cb_latency_spin_some.dir/build.make:76：CMakeFiles/timer_cb_latency_spin_some.dir/src/timer_cb_latency_spin_some.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:221：CMakeFiles/timer_cb_latency_spin_some.dir/all] 错误 2
+gmake[1]: *** 正在等待未完成的任务....
+gmake[2]: *** [CMakeFiles/init_thread.dir/build.make:76：CMakeFiles/init_thread.dir/src/init_thread.cpp.o] 错误 1
+gmake[1]: *** [CMakeFiles/Makefile2:143：CMakeFiles/init_thread.dir/all] 错误 2
+gmake[2]: *** [CMakeFiles/init_and_node_thread.dir/build.make:76：CMakeFiles/init_and_node_thread.dir/src/init_and_node_thread.cpp.o] 错误 1
+gmake[2]: *** 正在等待未完成的任务....
+gmake[2]: *** [CMakeFiles/timer_cb_latency_spin.dir/build.make:76：CMakeFiles/timer_cb_latency_spin.dir/src/timer_cb_latency_spin.cpp.o] 错误 1
+gmake[2]: *** 正在等待未完成的任务....
+[ 41%] [32mBuilding CXX object CMakeFiles/init_and_node_thread.dir/src/util.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/timer_cb_latency_spin.dir/src/util.cpp.o[0m
+gmake[1]: *** [CMakeFiles/Makefile2:195：CMakeFiles/timer_cb_latency_spin.dir/all] 错误 2
+gmake[1]: *** [CMakeFiles/Makefile2:169：CMakeFiles/init_and_node_thread.dir/all] 错误 2
+gmake: *** [Makefile:146：all] 错误 2
