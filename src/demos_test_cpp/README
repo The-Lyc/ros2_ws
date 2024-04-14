@@ -11,3 +11,17 @@ gprof exe gmon.out > gp_res.txt
 gprof2dot.py gp_res.txt | dot -Tsvg -o output.svg
 
 gprof ser gmon.out > gp_res.txt
+
+git config --global user.name "The-Lyc"
+git config --global user.email "liuyichen626@gmail.com" 
+
+ssh-keygen -t rsa -C "liuyichen626@gmail.com"
+
+ssh -T git@github.com
+
+git remote add origin 
+
+git branch -M main
+
+git add .
+git commit -m ""
