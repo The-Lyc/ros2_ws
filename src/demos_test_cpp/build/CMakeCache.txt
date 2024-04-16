@@ -502,6 +502,9 @@ rosidl_typesupport_introspection_c_DIR:PATH=/home/lyc/ros2_iron/install/rosidl_t
 //The directory containing a CMake configuration file for rosidl_typesupport_introspection_cpp.
 rosidl_typesupport_introspection_cpp_DIR:PATH=/home/lyc/ros2_iron/install/rosidl_typesupport_introspection_cpp/share/rosidl_typesupport_introspection_cpp/cmake
 
+//The directory containing a CMake configuration file for rttest.
+rttest_DIR:PATH=/home/lyc/ros2_iron/install/rttest/share/rttest/cmake
+
 //The directory containing a CMake configuration file for service_msgs.
 service_msgs_DIR:PATH=/home/lyc/ros2_iron/install/service_msgs/share/service_msgs/cmake
 
