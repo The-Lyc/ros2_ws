@@ -13,6 +13,7 @@ find_package(rclcpp_components REQUIRED)
 find_package(rcutils)
 find_package(rmw REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(rttest REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
@@ -26,13 +27,14 @@ target_compile_options(exe PRIVATE -pg)
 ament_target_dependencies(exe 
                   rclcpp
                   std_msgs
-                  example_interfaces)
+                  example_interfaces
+                  rttest)
 
 
 target_include_directories(exe PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(exe PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+target_compile_features(exe PUBLIC c_std_99 cxx_std_23)  # Require C99 and C++23
 
 install(TARGETS exe
   DESTINATION lib/${PROJECT_NAME})
