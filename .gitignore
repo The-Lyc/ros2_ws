@@ -1,0 +1,89 @@
+# --- 操作系统相关 ---
+.DS_Store          # macOS
+Thumbs.db          # Windows
+desktop.ini
+ehthumbs.db
+
+# --- IDE 和编辑器 ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.bak
+*.tmp
+
+# --- 编译输出 ---
+build/
+dist/
+out/
+bin/
+obj/
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+*.pyc
+*.pyo
+__pycache__/
+
+# --- Node.js ---
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+package-lock.json
+
+# --- Python ---
+.env
+.venv/
+venv/
+ENV/
+*.egg-info/
+*.egg
+*.pyd
+pip-log.txt
+
+# --- Java ---
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+*.iml
+
+# --- CMake ---
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# --- 日志和缓存 ---
+*.log
+*.pid
+*.seed
+*.pid.lock
+*.cache
+.cache/
+coverage/
+*.cover
+*.gcno
+*.gcda
+
+# --- Git自身 ---
+*.orig
+*.rej
+*.patch
+*.diff
+*.swp
+*~
+
+# --- 包含你的项目中自定义的临时文件或忽略目录 ---
+/local_config.json
+/secrets.json
+
