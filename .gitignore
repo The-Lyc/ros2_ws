@@ -62,6 +62,7 @@ CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
+cmk.txt
 
 # --- 日志和缓存 ---
 *.log

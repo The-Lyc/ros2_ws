@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.8)
 project(skipping_under_timermanager)
 add_compile_options(-g)
 
+set(RCLCPP_EXP_LATENCY OFF CACHE BOOL "Disable")
+set(EXP_SEP OFF CACHE BOOL "Enable")
+set(TEST_NEW OFF CACHE BOOL "Enable test new")
+
 # 默认使用 C++17
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 17)
