@@ -5,15 +5,20 @@
 #include <thread>
 
 int period[4]={
-  5,20,50,100
+  5,20,50,200
 };
 int sleep_time[4]={
-  1,2,5,80
+  1,4,10,40
 };
-char* topic[4]={
+const char* topic[4]={
   "topic_5ms","topic_20ms","topic_50ms","topic_100ms"
 };
+char* topic_second[4]={
+  "second_1","second_2","second_3","second_4"
+};
 int timer_cnt[4];
+
+std::vector<void*> timer_vec;
 
 class PublisherNode : public rclcpp::Node
 {
@@ -33,11 +38,15 @@ public:
         }));
     }
     timer_end = this->create_wall_timer(
-        std::chrono::milliseconds(2002),
+        std::chrono::milliseconds(410),
         [this]() {
           RCLCPP_INFO(this->get_logger(), "System end\n###cnt:%d,%d,%d,%d",timer_cnt[0],timer_cnt[1],timer_cnt[2],timer_cnt[3]);
           rclcpp::shutdown();
         });
+  }
+
+  void* GetEventKey(int x){
+    return mytimer[x].get();
   }
 
 private:
@@ -62,6 +71,10 @@ public:
     }
   }
 
+  void* GetEventKey(int x){
+    return mysubscription[x].get();
+  }
+
 private:
   std::vector<rclcpp::Subscription<std_msgs::msg::String>::SharedPtr> mysubscription;
 };
@@ -70,18 +83,36 @@ int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
 
-  // 创建 EventsExecutor
-  auto executor = std::make_shared<rclcpp::experimental::executors::EventsExecutor>();
-
-  std::cout<<"**********************"<<std::endl;
   // 创建节点
   auto mypublishernode = std::make_shared<PublisherNode>();
-  std::cout<<"---------------------"<<std::endl;
   auto subscriber_node = std::make_shared<SubscriberNode>();
+
+  // 创建 EventsExecutor
+  auto event_queue = std::make_unique<rclcpp::experimental::executors::SimpleEventsQueue>();
+  for(int i=0;i<2;i++)
+    for(int j=0;j<4;j++){
+      std::cout<<"++++++++"<<i<<","<<j<<"+++++++++"<<std::endl;
+      void* key=nullptr;
+      if(!i)  {
+        key=mypublishernode->GetEventKey(j);
+        timer_vec.push_back(key);
+      }
+      else{
+        key=subscriber_node->GetEventKey(j);
+        std::cout<<"$$$$$$$$$sub"<<j<<"is:"<<key<<std::endl;
+      }
+      event_queue->register_event(topic[j],timer_vec[j],key,{i,j},0);
+    }
+  bool flag = false;
+  rclcpp::ExecutorOptions options;
+  options.context = rclcpp::contexts::get_global_default_context();
+  auto executor = std::make_shared<rclcpp::experimental::executors::EventsExecutor>(std::move(event_queue),flag,options);
+
   // 将节点添加到执行器
   executor->add_node(mypublishernode);
   executor->add_node(subscriber_node);
 
+  std::cout<<"--------------------------"<<std::endl;
   // 开始执
   executor->spin();
 
