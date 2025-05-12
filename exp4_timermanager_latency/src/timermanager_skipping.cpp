@@ -72,7 +72,7 @@ public:
   }
 
   void* GetEventKey(int x){
-    return mysubscription[x].get();
+    return mysubscription[x]->get_subscription_handle().get();
   }
 
 private:
