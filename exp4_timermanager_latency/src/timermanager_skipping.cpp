@@ -101,7 +101,7 @@ int main(int argc, char ** argv)
         key=subscriber_node->GetEventKey(j);
         std::cout<<"$$$$$$$$$sub"<<j<<"is:"<<key<<std::endl;
       }
-      event_queue->register_event(topic[j],timer_vec[j],key,{i,j},0);
+      event_queue->register_event(timer_vec[j],key,false,{i,j},0);
     }
   bool flag = false;
   rclcpp::ExecutorOptions options;
