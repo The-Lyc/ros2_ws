@@ -13,12 +13,15 @@ int sleep_time[4]={
 const char* topic[4]={
   "topic_5ms","topic_20ms","topic_50ms","topic_100ms"
 };
-char* topic_second[4]={
+const char* topic_second[4]={
   "second_1","second_2","second_3","second_4"
 };
 int timer_cnt[4];
 
 std::vector<void*> timer_vec;
+
+#define BURST_IDX 2
+#define BURST_TIME 20
 
 class PublisherNode : public rclcpp::Node
 {
@@ -38,7 +41,7 @@ public:
         }));
     }
     timer_end = this->create_wall_timer(
-        std::chrono::milliseconds(410),
+        std::chrono::milliseconds(710),
         [this]() {
           RCLCPP_INFO(this->get_logger(), "System end\n###cnt:%d,%d,%d,%d",timer_cnt[0],timer_cnt[1],timer_cnt[2],timer_cnt[3]);
           rclcpp::shutdown();
@@ -66,7 +69,9 @@ public:
         10,
         [this,i](const std_msgs::msg::String::SharedPtr msg) {
           RCLCPP_INFO(this->get_logger(), "Received: '%s' from '%s'", msg->data.c_str(),topic[i]);
+          if(i==3)  cnt_++;
           std::this_thread::sleep_for(std::chrono::milliseconds(sleep_time[i]));
+          if(cnt_ == BURST_IDX && i==3) std::this_thread::sleep_for(std::chrono::milliseconds(BURST_TIME));
         }));
     }
   }
@@ -77,6 +82,7 @@ public:
 
 private:
   std::vector<rclcpp::Subscription<std_msgs::msg::String>::SharedPtr> mysubscription;
+  int cnt_=0;
 };
 
 int main(int argc, char ** argv)
