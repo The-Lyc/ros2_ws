@@ -256,8 +256,6 @@ int main(int argc, char ** argv)
 
   auto mypublishernode = std::make_shared<PublisherNode>();
 
-  auto event_queue = std::make_unique<rclcpp::experimental::executors::QosPromisedQueue>();
-
   for(int i=0;i<4;i++)
     for(int j=0;j<4;j++){
       std::cout<<"++++++++"<<i<<","<<j<<"+++++++++"<<std::endl;
@@ -265,7 +263,6 @@ int main(int argc, char ** argv)
       if(!j)  {
         key=mypublishernode->GetTimerKey(i);
         timer_vec.push_back(key);
-        event_queue->register_priority(key,priority[i]);
       }
       else{
         key=mypublishernode->GetEventKey(i,j);
@@ -276,22 +273,9 @@ int main(int argc, char ** argv)
       //else  event_queue->register_event(timer_vec[j],key,false,{i,j},0);
       if(key==nullptr)  continue;
       pos_map[static_cast<const void *>(key)] = {i,j};
-      event_queue->register_qos_event(key);
     }
 
-  // register token's producer
-  for(int i=0;i<4;i++){
-    auto consumer_ = mypublishernode->GetTimerKey(i);
-    auto producer_ = mypublishernode->GetLfKey(i);
-    // register hf-token's producer
-    event_queue->register_token_producer(consumer_,consumer_,true);
-    // register lf-token's producer
-    event_queue->register_token_producer(producer_,consumer_,false);
-  }
-  bool flag = false;
-  rclcpp::ExecutorOptions options;
-  options.context = rclcpp::contexts::get_global_default_context();
-  auto executor = std::make_shared<rclcpp::experimental::executors::EventsExecutor>(std::move(event_queue),flag,options);
+  auto executor = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
 
   executor->add_node(mypublishernode);
 
