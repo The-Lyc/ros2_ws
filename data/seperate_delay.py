@@ -5,7 +5,7 @@ from collections import defaultdict
 chain_data = defaultdict(lambda: {"RecordTime": [], "Delay": []})
 
 # 读取原始数据
-with open('jitter6_delay.csv', 'r') as f:
+with open('jitter8_delay.csv', 'r') as f:
     reader = csv.DictReader(f)
     for row in reader:
         chain = row['Chain']
@@ -13,7 +13,7 @@ with open('jitter6_delay.csv', 'r') as f:
         chain_data[chain]["Delay"].append(row['Delay'])
 
 # 写入新格式的 CSV
-with open('jitter6_delay' + '_sep.csv', 'w', newline='') as f:
+with open('jitter8_delay' + '_sep.csv', 'w', newline='') as f:
     writer = csv.writer(f)
 
     for chain in sorted(chain_data.keys()):  # 按顺序写入
