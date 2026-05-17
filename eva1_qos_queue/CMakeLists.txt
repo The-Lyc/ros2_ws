@@ -4,6 +4,7 @@ add_compile_options(-g)
 
 #add_compile_definitions(EXP_LATENCY)
 add_compile_definitions(EXP_QOS)
+add_compile_definitions(EXP_OVERHEAD)
 set(EXP_LATENCY ON CACHE BOOL "Disable")
 set(EXP_SEP OFF CACHE BOOL "Enable")
 set(TEST_NEW OFF CACHE BOOL "Enable test new")

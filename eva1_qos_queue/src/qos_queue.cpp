@@ -298,6 +298,24 @@ int main(int argc, char ** argv)
 
   executor->spin();
 
+  // Persist timer activation counts so they can be paired with
+  // /tmp/rclcpp_exp_overhead/qos_overhead.txt (written by ~QosPromisedQueue)
+  // for per-activation overhead computation. Only used when rclcpp was built
+  // with -DEXP_OVERHEAD=ON; otherwise the file is harmless leftover.
+  {
+    const char * env_dir = std::getenv("RCLCPP_EXP_OVERHEAD_LOG_DIR");
+    std::string dir = env_dir ? env_dir : "/tmp/rclcpp_exp_overhead";
+    std::ofstream f(dir + "/eva1_activations.txt", std::ios::out);
+    if (f.is_open()) {
+      int total = 0;
+      for (int i = 0; i < 4; i++) {
+        f << "chain" << (i + 1) << "_timer_cnt=" << timer_cnt[i] << "\n";
+        total += timer_cnt[i];
+      }
+      f << "total_timer_cnt=" << total << "\n";
+    }
+  }
+
   rclcpp::shutdown();
   return 0;
 }
