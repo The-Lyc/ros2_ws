@@ -17,6 +17,8 @@ ehthumbs.db
 
 # --- 编译输出 ---
 build/
+install/
+log/
 dist/
 out/
 bin/
